@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phishing Awareness Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#0f172a; color:#fff; text-align:center; padding:40px; }
+    .box { background:#1e293b; padding:20px; border-radius:12px; max-width:400px; margin:auto; }
+    input { display:block; margin:10px auto; padding:10px; width:90%; border-radius:8px; border:none; }
+    button { padding:10px 20px; border:none; border-radius:8px; background:#3b82f6; color:white; cursor:pointer; }
+    .fake-process { margin-top:20px; }
+    .result { margin-top:20px; color:#22c55e; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>CloudMail Secure</h2>
+    <p>Please verify your session</p>
+    <form id="fakeForm">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Continue</button>
+    </form>
+    <div class="fake-process" id="process" style="display:none;">
+      <p>Capturing data…</p>
+      <p>Sending to server…</p>
+      <p>Uploading to Mr. Zeeshan…</p>
+    </div>
+    <div class="result" id="result" style="display:none;">
+      <h3>⚠️ This was a SAFE simulation!</h3>
+      <p>No data was collected. In a real phishing attack, your info could be stolen.</p>
+      <p><strong>Lesson:</strong> Always check the URL, never trust unknown links, and use 2FA.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("fakeForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("fakeForm").style.display = "none";
+      document.getElementById("process").style.display = "block";
+
+      setTimeout(function(){
+        document.getElementById("process").style.display = "none";
+        document.getElementById("result").style.display = "block";
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
+s
